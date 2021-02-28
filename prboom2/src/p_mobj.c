@@ -1509,6 +1509,9 @@ uint_64_t P_ColoredBlood (mobj_t* bleeder)
     // Cacodemons bleed blue blood
     else if (bleeder->type == MT_HEAD)
       return MF_COLOREDBLOOD | MF_TRANSLATION1;
+    // [crispy] Spectres bleed spectre blood
+    else if (bleeder->flags & MF_SHADOW)
+      return (bleeder->flags & MF_SHADOW);
   }
   return 0;
 }
@@ -1534,10 +1537,6 @@ void P_SpawnBlood(fixed_t x,fixed_t y,fixed_t z,int damage, mobj_t* bleeder)
     P_SetMobjState (th,S_BLOOD2);
   else if (damage < 9)
     P_SetMobjState (th,S_BLOOD3);
-
-  // [crispy] Spectres bleed spectre blood
-  if (colored_blood)
-    th->flags |= (bleeder->flags & MF_SHADOW);
 }
 
 
