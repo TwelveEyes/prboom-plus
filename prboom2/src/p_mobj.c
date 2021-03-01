@@ -1464,6 +1464,10 @@ spawnit:
         "%d,%d (type=%d)\n", mthing->x, mthing->y, thingtype);
   }
 
+  // [crispy] Lost Souls bleed Puffs
+  if(colored_blood && i == MT_SKULL)
+      mobj->flags |= MF_NOBLOOD;
+
   return mobj;
 }
 
