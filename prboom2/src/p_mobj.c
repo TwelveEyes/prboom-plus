@@ -1511,7 +1511,7 @@ uint_64_t P_ColoredBlood (mobj_t* bleeder)
       return MF_COLOREDBLOOD | MF_TRANSLATION1;
     // [crispy] Spectres bleed spectre blood
     else if (bleeder->flags & MF_SHADOW)
-      return (bleeder->flags & MF_SHADOW);
+      return MF_SHADOW;
   }
   return 0;
 }
